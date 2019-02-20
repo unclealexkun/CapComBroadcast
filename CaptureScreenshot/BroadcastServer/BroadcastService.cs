@@ -24,5 +24,15 @@ namespace BroadcastServer
 		protected override void OnStop()
 		{
 		}
+
+		public void Start()
+		{
+
+		}
+
+		public void Stop()
+		{
+
+		}
 	}
 }

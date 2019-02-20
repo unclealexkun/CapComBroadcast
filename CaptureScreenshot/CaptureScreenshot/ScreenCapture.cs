@@ -2,7 +2,8 @@
 
 namespace CaptureScreenshot
 {
-	public class Class1
+	public class ScreenCapture
 	{
+
 	}
 }

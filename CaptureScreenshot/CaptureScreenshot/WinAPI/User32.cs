@@ -6,7 +6,7 @@ namespace CaptureScreenshot.WinAPI
 	internal class User32
 	{
 		[StructLayout(LayoutKind.Sequential)]
-		public struct RECT
+		internal struct RECT
 		{
 			public int left;
 			public int top;
@@ -14,12 +14,12 @@ namespace CaptureScreenshot.WinAPI
 			public int bottom;
 		}
 		[DllImport("user32.dll")]
-		public static extern IntPtr GetDesktopWindow();
+		internal static extern IntPtr GetDesktopWindow();
 		[DllImport("user32.dll")]
-		public static extern IntPtr GetWindowDC(IntPtr hWnd);
+		internal static extern IntPtr GetWindowDC(IntPtr hWnd);
 		[DllImport("user32.dll")]
-		public static extern IntPtr ReleaseDC(IntPtr hWnd, IntPtr hDC);
+		internal static extern IntPtr ReleaseDC(IntPtr hWnd, IntPtr hDC);
 		[DllImport("user32.dll")]
-		public static extern IntPtr GetWindowRect(IntPtr hWnd, ref RECT rect);
+		internal static extern IntPtr GetWindowRect(IntPtr hWnd, ref RECT rect);
 	}
 }

@@ -8,10 +8,11 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>RunnerBroadcastServer</RootNamespace>
     <AssemblyName>RunnerBroadcastServer</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,6 +55,10 @@
     <ProjectReference Include="..\BroadcastServer\BroadcastServer.csproj">
       <Project>{2a794140-86cf-411e-b3c4-ca0dc15403b8}</Project>
       <Name>BroadcastServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CaptureScreenshot\CaptureScreenshot.csproj">
+      <Project>{11fda9b6-4362-4e58-98f0-985e1644f26f}</Project>
+      <Name>CaptureScreenshot</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

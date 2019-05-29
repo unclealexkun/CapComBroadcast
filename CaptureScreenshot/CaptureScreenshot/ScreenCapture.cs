@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using CaptureScreenshot.WinAPI;
 
 namespace CaptureScreenshot
@@ -41,7 +42,7 @@ namespace CaptureScreenshot
 			IntPtr hOld = GDI32.SelectObject(hdcDest, hBitmap);
 			// bitblt перезапись
 			GDI32.BitBlt(hdcDest, 0, 0, width, height, hdcSrc, 0, 0, GDI32.SRCCOPY);
-			// restore selection
+			// Восстановить выбранное
 			GDI32.SelectObject(hdcDest, hOld);
 			// Очистка 
 			GDI32.DeleteDC(hdcDest);
@@ -51,6 +52,29 @@ namespace CaptureScreenshot
 			// Освобождаем Bitmap объект
 			GDI32.DeleteObject(hBitmap);
 			return img;
+		}
+
+		/// <summary>
+		/// Делает снимок экрана определенного окна и сохраняет его в файл
+		/// </summary>
+		/// <param name="handle">handle</param>
+		/// <param name="filename">Имя файла</param>
+		/// <param name="format">Формат изображения</param>
+		public void CaptureWindowToFile(IntPtr handle, string filename, ImageFormat format)
+		{
+			Image img = CaptureWindow(handle);
+			img.Save(filename, format);
+		}
+
+		/// <summary>
+		/// Делает снимок экрана всего рабочего стола и сохраняет его в файл
+		/// </summary>
+		/// <param name="filename">Имя файла</param>
+		/// <param name="format">Формат изображения</param>
+		public void CaptureScreenToFile(string filename, ImageFormat format)
+		{
+			Image img = CaptureScreen();
+			img.Save(filename, format);
 		}
 	}
 }

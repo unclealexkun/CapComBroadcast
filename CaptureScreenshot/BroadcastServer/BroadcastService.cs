@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing.Imaging;
+using System.IO;
 using System.ServiceProcess;
 using CaptureScreenshot;
 using System.Timers;
@@ -9,12 +10,15 @@ namespace BroadcastServer
 {
 	public partial class BroadcastService : ServiceBase
 	{
+		private static string path = Directory.GetCurrentDirectory() + "\\Screenshots";
+
 		private static Logger logger = LogManager.GetCurrentClassLogger();
 		private static Timer timer;
 
 		public BroadcastService()
 		{
 			InitializeComponent();
+			if (!Directory.Exists(path)) Directory.CreateDirectory(path);
 		}
 
 		protected override void OnStart(string[] args)
@@ -55,7 +59,7 @@ namespace BroadcastServer
 
 				var screenCapture =  new ScreenCapture();
 				var image = screenCapture.CaptureScreen();
-				image.Save($"{DateTime.Now}.bmp", ImageFormat.Bmp);
+				image.Save($"{path}\\{DateTime.Now}.bmp", ImageFormat.Bmp);
 
 				timer.Start();
 			}

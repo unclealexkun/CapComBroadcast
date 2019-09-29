@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>BroadcastServer</RootNamespace>
     <AssemblyName>BroadcastServer</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -40,9 +40,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing.Common">
-      <HintPath>C:\Users\UncleAlexKun\.nuget\packages\system.drawing.common\4.5.1\ref\netstandard2.0\System.Drawing.Common.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
@@ -100,9 +98,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CaptureScreenshot\CaptureScreenshot.csproj">
-      <Project>{11fda9b6-4362-4e58-98f0-985e1644f26f}</Project>
-      <Name>CaptureScreenshot</Name>
+    <ProjectReference Include="..\CapturingScreenshots\CapturingScreenshots.csproj">
+      <Project>{544e82aa-3123-470d-a5e1-2d466736cbea}</Project>
+      <Name>CapturingScreenshots</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

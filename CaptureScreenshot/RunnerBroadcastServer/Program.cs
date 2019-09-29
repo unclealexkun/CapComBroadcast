@@ -12,7 +12,7 @@ namespace RunnerBroadcastServer
 			if (Environment.UserInteractive)
 			{
 				service.Start();
-				Console.WriteLine("Press any key to stop program");
+				Console.WriteLine("Press any key to stop program...");
 				while (!Console.KeyAvailable)
 				{
 				}

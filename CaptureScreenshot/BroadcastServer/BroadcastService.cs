@@ -2,7 +2,7 @@
 using System.Drawing.Imaging;
 using System.IO;
 using System.ServiceProcess;
-using CaptureScreenshot;
+using CapturingScreenshots;
 using System.Timers;
 using NLog;
 
@@ -41,10 +41,13 @@ namespace BroadcastServer
 			timer.Elapsed += OnTimedEvent;
 			timer.AutoReset = true;
 			timer.Enabled = true;
+
+			timer.Start();
 		}
 
 		public void Stop()
 		{
+			timer.Stop();
 			logger.Info("Остановка службы.");
 			timer.Dispose();
 		}
@@ -55,13 +58,9 @@ namespace BroadcastServer
 
 			try
 			{
-				timer.Stop();
-
-				var screenCapture =  new ScreenCapture();
+				var screenCapture = new ScreenCapture();
 				var image = screenCapture.CaptureScreen();
 				image.Save($"{path}\\{DateTime.Now}.bmp", ImageFormat.Bmp);
-
-				timer.Start();
 			}
 			catch (Exception ex)
 			{

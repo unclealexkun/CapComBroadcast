@@ -10,7 +10,7 @@ namespace BroadcastServer
 {
 	public partial class BroadcastService : ServiceBase
 	{
-		private static string path = Directory.GetCurrentDirectory() + "\\Screenshots";
+		private static string pathScreenshots = Directory.GetCurrentDirectory() + "\\Screenshots";
 
 		private static Logger logger = LogManager.GetCurrentClassLogger();
 		private static Timer timer;
@@ -18,7 +18,7 @@ namespace BroadcastServer
 		public BroadcastService()
 		{
 			InitializeComponent();
-			if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+			if (!Directory.Exists(pathScreenshots)) Directory.CreateDirectory(pathScreenshots);
 		}
 
 		protected override void OnStart(string[] args)
@@ -61,7 +61,7 @@ namespace BroadcastServer
 				var screenCapture = new ScreenCapture();
 				var image = screenCapture.CaptureScreen();
 				var timeName = e.SignalTime.ToString("yyyyMMddTHHmmss");
-				image.Save($"{path}\\{timeName}.bmp", ImageFormat.Bmp);
+				image.Save($"{pathScreenshots}\\{timeName}.bmp", ImageFormat.Bmp);
 			}
 			catch (Exception ex)
 			{

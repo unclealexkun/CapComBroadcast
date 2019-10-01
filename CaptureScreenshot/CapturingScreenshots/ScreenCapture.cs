@@ -62,8 +62,10 @@ namespace CapturingScreenshots
 		/// <param name="format">Формат изображения</param>
 		public void CaptureWindowToFile(IntPtr handle, string filename, ImageFormat format)
 		{
-			Image img = CaptureWindow(handle);
-			img.Save(filename, format);
+			using (Image img = CaptureWindow(handle))
+			{
+				img.Save(filename, format);
+			}
 		}
 
 		/// <summary>
@@ -73,8 +75,10 @@ namespace CapturingScreenshots
 		/// <param name="format">Формат изображения</param>
 		public void CaptureScreenToFile(string filename, ImageFormat format)
 		{
-			Image img = CaptureScreen();
-			img.Save(filename, format);
+			using (Image img = CaptureScreen())
+			{
+				img.Save(filename, format);
+			}
 		}
 	}
 }

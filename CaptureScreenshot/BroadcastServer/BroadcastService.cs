@@ -59,9 +59,10 @@ namespace BroadcastServer
 			try
 			{
 				var screenCapture = new ScreenCapture();
-				var image = screenCapture.CaptureScreen();
-				var timeName = e.SignalTime.ToString("yyyyMMddTHHmmss");
-				image.Save($"{pathScreenshots}\\{timeName}.bmp", ImageFormat.Bmp);
+				using (var image = screenCapture.CaptureScreen())
+				{
+					image.Save($"{pathScreenshots}\\{e.SignalTime.ToString("yyyyMMddTHHmmss")}.bmp", ImageFormat.Bmp);
+				}
 			}
 			catch (Exception ex)
 			{

@@ -54,7 +54,7 @@ namespace BroadcastServer
 
 		private static void OnTimedEvent(Object source, ElapsedEventArgs e)
 		{
-			logger.Trace($"Событие в {e.SignalTime}");
+			logger.Trace($"Событие в {e.SignalTime}.{e.SignalTime.Millisecond}");
 
 			try
 			{

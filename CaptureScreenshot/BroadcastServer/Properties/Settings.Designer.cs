@@ -25,7 +25,7 @@ namespace BroadcastServer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("00:00:01")]
+        [global::System.Configuration.DefaultSettingValueAttribute("00:00:00.0410000")]
         public global::System.TimeSpan Interval {
             get {
                 return ((global::System.TimeSpan)(this["Interval"]));

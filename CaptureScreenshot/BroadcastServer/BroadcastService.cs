@@ -1,10 +1,10 @@
-﻿using System;
+﻿using CapturingScreenshots;
+using NLog;
+using System;
 using System.Drawing.Imaging;
 using System.IO;
 using System.ServiceProcess;
-using CapturingScreenshots;
 using System.Timers;
-using NLog;
 
 namespace BroadcastServer
 {
@@ -61,7 +61,7 @@ namespace BroadcastServer
 				var screenCapture = new ScreenCapture();
 				using (var image = screenCapture.CaptureScreen())
 				{
-					image.Save($"{pathScreenshots}\\{e.SignalTime.ToString("yyyyMMddTHHmmss")}.bmp", ImageFormat.Bmp);
+					image.Save($"{pathScreenshots}\\{e.SignalTime.ToString("yyyyMMddTHHmmssffff")}.bmp", ImageFormat.Bmp);
 				}
 			}
 			catch (Exception ex)
